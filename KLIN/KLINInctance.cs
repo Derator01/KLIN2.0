@@ -6,10 +6,10 @@
 
         private static List<Parameter> _configOptions;
 
-        internal void KLINInstanse(string desiredName)
+        internal bool KLINInstanse(string desiredName)
         {
             if (desiredName.Length < 2)
-                return;
+                return false;
             _klinFilePath = @"*\" + desiredName;
             if (!Directory.Exists(_klinFilePath))
             {
@@ -19,7 +19,10 @@
             string[] contents = File.ReadAllLines(_klinFilePath);
 
             if (contents.Length == 0)
-                return;
+                return true;
+
+            
+            return true;
         }
     }
 
@@ -43,6 +46,9 @@
             if (other == null) return false;
             return (Value.Equals(other.Value));
         }
-
+        public void Parse(string line)
+        {
+        line.Split(' ')
+        }
     }
 }
