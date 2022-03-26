@@ -21,7 +21,10 @@
             if (contents.Length == 0)
                 return true;
 
-            
+            for (int i = 0; i < contents.Length; i++)
+            {
+                _configOptions.Append(Parameter.Parse(contents[i]));
+            }
             return true;
         }
     }
@@ -46,7 +49,7 @@
             if (other == null) return false;
             return (Value.Equals(other.Value));
         }
-        public void Parse(string line)
+        public Parameter Parse(string line)
         {
         line.Split(' ')
         }
